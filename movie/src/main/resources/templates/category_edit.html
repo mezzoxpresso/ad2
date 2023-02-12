@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/css/responsive.css}" rel ="stylesheet" href="responsive.css">
+<head th:replace="fragments/layout.html :: html_head" />
+<body>
+
+	<div th:replace="fragments/layout.html :: menu" />
+		<div class="header">
+			<h2>Edit Category</h2>
+		</div>
+	<div class="box">
+	<form method="post" th:object="${movieCategory}" th:action="@{/admin/category/edit}">
+		<p> Input a new name for this category</p>
+		<input type="text" th:field="*{movieCategoryId}"
+						th:value="${movieCategory.movieCategoryId}" hidden/>
+	
+
+			<input class="col-sm-2" type="text" th:field="*{movieCategoryName}" th:value="${movieCategory.movieCategoryName}" />
+			<div>
+				<input th:type="submit" th:value="Submit" class="btn4" />
+			</div>
+
+		</div>
+	</form>
+	</div>
+	<div th:replace="fragments/layout.html :: footer" />
+</body>
+
+</html>
+
+
+<!--<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/css/responsive.css}" rel ="stylesheet" href="responsive.css">
+<head th:replace="fragments/layout.html :: html_head" />
+<body>
+	<div th:replace="fragments/layout.html :: menu" />
+	<form method="post" th:object="${movieCategory}" th:action="@{/admin/category/edit}">
+		
+		<input type="text" th:field="*{movieCategoryId}"
+						th:value="${movieCategory.movieCategoryId}" hidden/>
+	
+		<div class="form-group row">
+			<div class="col-sm-1"></div>
+			<h3 class="col-sm-4">Edit Category</h3>
+		</div>
+
+		<div class="form-group row">
+			<div class="col-sm-1"></div>
+			<input class="col-sm-2" type="text" th:field="*{movieCategoryName}" th:value="${movieCategory.movieCategoryName}" />
+			<div class="col-sm-3">
+				<input th:type="submit" th:value="Submit" class="blcass btn btn-success" />
+			</div>
+		</div>
+		</div>
+	</form>
+	<div th:replace="fragments/layout.html :: footer" />
+</body>
+
+</html>-->

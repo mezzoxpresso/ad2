@@ -1,0 +1,363 @@
+@media(min-width:768px){
+	/*movieList*/
+	
+	.wrapper-2-poster{
+	height: 300px;
+	}
+	.wrapper-2-poster img{
+		width: 150px;
+		height:auto;
+	}
+	.wrapper-3{
+		width:100%;
+		display:flex;
+	}
+	.wrapper-header{
+		width:100%;
+		display:flex;
+	}
+	
+	/*Movie List body*/
+	
+	.wrapper-3 p{
+		display: none;
+	}
+	
+	/*manage category*/
+	.category{
+		width:60%;
+		height:100%;
+		padding:10px;
+		display:flex;
+		justify-content:center;
+		margin-right:auto;
+		margin-left: auto;
+	}
+	
+	.add-category{
+		width: 50%;
+	}
+
+
+	/*edit movie*/
+	.movie-wrapper{
+		width:100%;
+		padding: 5px;
+		display:flex;
+		justify-content:space-around;
+	}
+	.movie-content{
+		display:block;
+	}
+	
+	/*GENERAL*/
+		.header h2{
+		width: 60%;
+	}
+	
+	.box{
+		width: 50%;
+	}
+	.btn4{
+	/*generic*/
+	  	width: 20%;  	
+	}
+
+}
+
+@media(max-width:760px){
+
+	.wrapper-header{
+		display:none;
+	}
+	/*manage category*/
+	.category container{
+		width:100%;
+		padding:10px;
+		justify-content: center;
+		
+	}
+	.add-category input[type=submit] {
+		  float: right;
+		  margin-right: 20px;
+	}
+	/*Movie List body*/
+	.wrapper-2-poster img{
+		width: 200px;
+		height:400px;
+	}
+
+	.wrapper-3 p{
+		margin: 0;
+	    padding: 0;
+	    color: #80b0c8;
+	    font-size: 14px;
+	    text-align:center;
+	    /*width: 50%;
+    	float: left;*/
+	}
+	.wrapper-2-box, .wrapper-2-id, .wrapper-2-description{
+		text-align:center;
+		/*width: 50%;*/
+
+	}
+	
+	.body input[type=text]{
+		  width: 90%;
+		  padding: 12px;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  resize: vertical;
+	}
+	.body input[type=submit] {
+		  float: right;
+		  margin-right: 20px;
+	}
+	
+	/*GENERAL*/
+	.header{
+		width:100%;
+	}
+	.header h2{
+		width: 90%;
+	}
+
+	.box{
+		width: 90%;
+	}
+	.box input[type=text], .box input[type=password], .add-category input[type=text] {
+		width: 90%;
+	  border: 1px solid #ccc;
+	  border-radius: 4px;
+	}
+		.btn4{
+	/*generic*/
+	  	width: 60%;  	
+	}
+
+}
+/*-----------------------------------------------------------------*/
+/*Manage Category*/
+.category container{
+	margin-left: auto;
+	margin-right: auto;
+}
+.add-category{
+	border: 2px solid #3f5246;	
+		border-radius: 12px;
+		margin-left: 20px;
+		margin-right:20px;
+		margin-bottom: 20px;
+		padding: 10px;
+}
+
+.category-element{
+	flex:1;
+}
+.category-header-element{
+	flex:1;
+	font-size: 20px;
+	font-weight: bold;
+	color: teal;
+}
+.category-header{
+	display:flex;
+}
+.category-body{
+	display:flex;
+}
+
+
+/*MovieList header */
+
+.header-box{
+	flex:2;
+	color:teal;
+	font-weight: bold;
+	font-size: 20px;
+	padding:5px;
+}
+.header-box-id{
+	flex:1;
+	color:teal;
+	font-weight: bold;
+	font-size: 20px;
+	padding:5px;
+}
+.header-box-poster{
+	flex:3;
+	color:teal;
+	font-weight: bold;
+	font-size: 20px;
+	padding:5px;
+}
+.header-box-description{
+	flex:4;
+	color:teal;
+	font-weight: bold;
+	font-size: 20px;
+	padding:5px;
+}
+
+/*Movie List body*/
+
+.wrapper-1{
+
+	display: flex;
+	border: 1px #ccc solid;
+    padding:10 px;
+}
+.wrapper-2{
+	display:flex;
+}
+
+.wrapper-2-box{
+	flex: 2;
+	padding:5px;
+}
+
+.wrapper-2-id{
+	flex: 1;
+	padding:5px;
+}
+.wrapper-2-poster{
+	flex: 3;
+	padding:5px;
+}
+
+.wrapper-2-description{
+	flex: 4;
+	padding:5px;
+}
+
+/*edit movie*/
+.movie-image{
+	flex:1;
+}
+.movie-content{
+	flex:1;
+}
+
+/*USERLIST*/
+.user-container{
+		border: 2px solid #3f5246;	
+		border-radius: 12px;
+		margin-left: 20px;
+		margin-right:20px;
+		padding: 10px;
+	}
+
+/*button*/
+
+.btn{
+	background-color: #008080;
+	width: 100px;
+  	border: none;
+  	color: white;
+  	padding: 10px 10px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	border-radius: 12px;
+  	font-size: 16px;
+  	margin-top: 10px;
+  	margin-bottom: 10px;
+}
+.btn:hover {
+  background-color: #a5b7bb;
+  color: white;
+}
+
+.btn2, .box input[type=submit] {
+	/*yes*/
+	background-color: #008080;
+	width: 60px;
+  	border: none;
+  	color: white;
+  	padding: 5px 5px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	border-radius: 12px;
+  	font-size: 15px;
+  	margin-top:5px;
+  	margin-bottom: 10px;
+}
+.btn2:hover {
+  background-color: #c2cca6;
+  color: white;
+}
+
+.btn3, .box input[type=reset]{
+	/*no*/
+	background-color: #852234;
+	width: 60px;
+  	border: none;
+  	color: white;
+  	padding: 5px 5px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	border-radius: 12px;
+  	font-size: 15px;
+  	margin-top:5px;
+  	margin-bottom: 10px;
+}
+.btn3:hover {
+  background-color: #a16e73;
+  color: white;
+}
+
+.btn4{
+	/*generic*/
+	background-color: #24688e;
+  	border: none;
+  	color: white;
+  	padding: 5px 5px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	border-radius: 12px;
+  	font-size: 15px;
+  	margin-top:5px;
+  	margin-bottom: 10px;
+  	margin-left:auto;
+  	margin-right: auto;  	
+}
+.btn4:hover {
+  background-color: #a16e73;
+  color: white;
+}
+
+/*GENERAL STYLE*/
+	.header h2{
+		border: 2px solid #000000 ;
+		background: #000000 ;
+		border-radius: 12px;
+		color:  #FFFFFF ;
+		padding: 5px;
+		font-weight: bold;
+		text-align:center;
+		font-size: 30px;
+		margin-left:auto;
+		margin-right: auto;
+	}
+	
+	.box{
+		text-align: center;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	
+	.container{
+		border: 2px solid #3f5246;	
+		border-radius: 12px;
+		margin-left: 20px;
+		margin-right:20px;
+		padding: 10px;
+	}
+	
+	.center {
+		display: flex;
+		justify-content: center;
+	}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" media="all" th:href="@{/css/movie_details.css}" href="/css/movie_details.css" type="text/css" />
+<link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.min.css}" href="/bootstrap/css/bootstrap.min.css"
+	type="text/css" />
+
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} " />
+<link rel="stylesheet" href="/assets/star-rating.min.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.0.7/css/star-rating.css" media="all"
+	rel="stylesheet" type="text/css" />
+
+<!-- optionally if you need to use a theme, then include the theme file as mentioned below -->
+<link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.0.7/themes/krajee-svg/theme.css" media="all"
+	rel="stylesheet" type="text/css" />
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<head th:replace="fragments/layout.html :: html_head" />
+
+<body>
+	<div th:replace="fragments/layout.html :: menu" />
+	<div class="row">
+		<div class="col-sm-3">
+		</div>
+		<h3 class="col-sm-5">My Review History</h3>
+	</div>
+	<br>
+	<div th:each="review : ${reviewList}">
+		<div class="review-container">
+		<div class="row">
+			<div class="col-sm-3">
+			</div>
+			<div class="col-sm-2">
+				<div class="moviedetail"> <img th:src="@{'/images/'+${review.movie.moviePoster}}"></div>
+			</div>
+			<div class="col-sm-4">
+				<div class=row>
+					<!--<h2 th:text="${movie.movieTitle}"></h2>-->
+					<h4 th:text="${review.movie.movieTitle}"></h4>
+				</div>
+				<div class="row">
+					<input th:id="${reviewId}" name="input-name" type="number" class="rating"
+						th:value="${review.rating}" min=0.5 max=5 data-size="sm" data-rtl="false" disabled
+						data-show-clear="false">
+				</div>
+			</div>
+
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-sm-3">
+			</div>
+			<div class="col-sm-6">
+				<h5 th:text="${review.comment}"></h5>
+			</div>
+			<div class="col-sm-1">
+				<a th:href="@{/user/reviewHistory/delete/}+${review.reviewId}" class="btn btn-danger"><span
+						th:text="Delete"></span></a>
+
+			</div>
+		</div>
+		</div>
+	</div>
+
+	<script src="/assets/star-rating.min.js"></script>
+	<div th:replace="fragments/layout.html :: footer" />
+</body>
+
+</html>

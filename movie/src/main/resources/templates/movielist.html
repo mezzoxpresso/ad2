@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--<link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.min.css}"
+		href="/bootstrap/css/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" media="all" th:href="@{/css/site.css}" href="/bootstrap/css/bootstrap.min.css"
+		type="text/css" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
+<link th:href="@{/css/responsive.css}" rel ="stylesheet" href="responsive.css">
+<head th:replace="fragments/layout.html :: html_head" />
+<body>
+  <div th:replace="fragments/layout.html :: menu" />
+		<div class="header">
+				<h2>View Created Movie List</h2>
+				
+			</div>
+			<div class="center"> <a th:href="@{/admin/createForm}" class="btn4">+Add New Movie</a></div>
+
+	<div class="container">
+			<div class="wrapper-header">
+				<div class ="header-box-id"> No. </div>
+				<div class ="header-box-poster"> Poster </div>
+				<div class ="header-box"> Title </div>
+				<div class ="header-box"> Genres </div>
+				<div class ="header-box-description"> Description </div>
+				<div class ="header-box"> Actor1 </div>
+				<div class ="header-box"> Actor2 </div>
+				<div class ="header-box"> Director </div>
+				<div class ="header-box"> Movie Release Date </div>
+				<div class ="header-box"> Content Rating</div>
+				<div class ="header-box"> Actions</div>			
+			</div>
+
+				<div th:each="movie : ${movieList}" class="listRecord">
+				<div class="wrapper-3">
+
+	
+						<div class="wrapper-2-id" th:text="${movie.movieId}">Movie Id</div>
+
+						<div class="wrapper-2-poster">
+						<div class="center"><img th:src="@{'/images/'+${movie.moviePoster}}" ></div></div>
+
+					<p class="phone-headers">Movie Title</p>
+					<div class="wrapper-2-box" th:text="${movie.movieTitle}">Movie Title</div>
+					
+					
+					<div class="wrapper-2-box">
+					<p class="phone-headers">Category</p>
+					<label th:text="${movie.movieCategory}"/></br></p>
+					</div>
+					
+					<p class="phone-headers">Description</p>
+					<div class="wrapper-2-description" th:text="${movie.movieDescription}">Movie Description</div>
+					<p class="phone-headers">Actors</p>
+					<div class="wrapper-2-box" th:text="${movie.actor1_name}">Actor 1</div>			
+					<div class="wrapper-2-box" th:text="${movie.actor2_name}">Actor 2</div>
+					<p class="phone-headers">Director</p>
+					<div class="wrapper-2-box" th:text="${movie.director}">Director</div>
+					<p class="phone-headers">Release Date</p>
+					<div class="wrapper-2-box" th:text="${movie.movieReleaseDate}">Movie Release Date</div>
+					<p class="phone-headers">Rating</p>
+					<div class="wrapper-2-box" th:text="${movie.content_rating}">Content Rating</div>
+					<p class="phone-headers">Actions</p>
+					<div class="wrapper-2-box"><a th:href="@{/admin/movie/edit/}+${movie.movieId}" class="btn2"><span
+								th:text="Edit"></span></a>
+					<a th:href="@{/admin/movie/delete/}+${movie.movieId}" class="btn3"><span
+								th:text="Delete"></span></a>
+								</div>
+					<p><br><hr></p>
+
+				</div>
+				</div>
+
+	</div>
+	<div th:replace="fragments/layout.html :: footer" />
+</body>
+
+</html>
+
+<!--<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.min.css}"
+		href="/bootstrap/css/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" media="all" th:href="@{/css/site.css}" href="/bootstrap/css/bootstrap.min.css"
+		type="text/css" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<head th:replace="fragments/layout.html :: html_head" />
+<body>
+	<div th:replace="fragments/layout.html :: menu" />
+	<div class="container">
+
+		<div class="row my-3">
+			<div class="col">
+				<h2>View Created Movie List</h2>
+			</div>
+			<div class="col">
+				<div class="d-flex justify-content-end"><a th:href="@{/admin/createForm}" class="btn btn-success">+Add New Movie</a></div>
+			</div>
+		</div>
+		<table class="table table-bordered border-success">
+			<thead>
+				<tr class="table-success text-center">
+						<th scope="col">No.</th>
+						<th scope="col">Poster</th>
+						<th scope="col">Title</th>
+						<th scope="col">Genres</th>
+						<th scope="col">Description</th>
+						<th scope="col">Actor1</th>
+						<th scope="col">Actor2</th>
+						<th scope="col">Director</th>
+						<th scope="col">Moive Release Date</th>
+						<th scope="col">Content Rating</th>
+						<th scope="col">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="movie : ${movieList}" class="listRecord">
+				
+					<td class="text-center" th:text="${movie.movieId}">Movie Id</td>
+					
+					<td class="text-center"><img th:src="@{'/images/'+${movie.moviePoster}}" style="width: 150px;height: 150px;"></td>
+					
+					<td class="text-center" th:text="${movie.movieTitle}">Movie Title</td>
+					
+					
+					<td class="text-center">
+					<label th:text="${movie.movieCategory}"/></br></p>
+					</td>
+					
+					
+					<td class="text-center" th:text="${movie.movieDescription}">Movie Description</td>
+					<td class="text-center" th:text="${movie.actor1_name}">Actor 1</td>
+					<td class="text-center" th:text="${movie.actor2_name}">Actor 2</td>
+					<td class="text-center" th:text="${movie.director}">Director</td>
+					<td class="text-center" th:text="${movie.movieReleaseDate}">Movie Release Date</td>
+					<td class="text-center" th:text="${movie.content_rating}">Content Rating</td>
+					
+					<td class="text-center"><a th:href="@{/admin/movie/edit/}+${movie.movieId}" class="btn btn-success"><span
+								th:text="Edit"></span></a><br></br>
+					<a th:href="@{/admin/movie/delete/}+${movie.movieId}" class="btn btn-danger"><span
+								th:text="Delete"></span></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div th:replace="fragments/layout.html :: footer" />
+</body>
+
+</html>-->

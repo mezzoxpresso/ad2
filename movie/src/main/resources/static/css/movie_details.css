@@ -1,0 +1,53 @@
+@media(min-width:768px){
+	.moviedetail img{
+		width: 200px;
+		height:300px; 
+	}
+	
+
+}
+
+@media(max-width:760px){
+	.moviedetail{
+		width: 50%;
+		height:300px;
+		display: flex;
+		justify-content: center;
+	}
+	.moviedetail img{
+		width: 200px;
+		height: 300px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+}
+
+
+.review-container{
+	border:1px solid black;
+	padding: 10px;
+	border-radius: 12px;
+	margin-left: 10px;
+	margin-right: 10px;
+
+}
+
+.scroll {
+max-height:160px;
+overflow-y:scroll;
+overflow-x:clip;
+}
+
+.mar {
+	margin-top: 1%;
+}
+
+.ra{
+	background-color: grey;
+}
+
+body{
+	width:100%; 
+	height:100%;
+}

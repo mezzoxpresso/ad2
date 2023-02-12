@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.min.css}" href="/bootstrap/css/bootstrap.min.css"
+	type="text/css" />
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<link rel="stylesheet" media="all" th:href="@{/css/movie_details.css}" href="/css/movie_details.css" type="text/css" />
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} " />
+<link rel="stylesheet" href="/assets/star-rating.min.css" />
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.0.7/css/star-rating.css" media="all"
+	rel="stylesheet" type="text/css" />
+
+<!-- optionally if you need to use a theme, then include the theme file as mentioned below -->
+<link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-star-rating@4.0.7/themes/krajee-svg/theme.css" media="all"
+	rel="stylesheet" type="text/css" />
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<head th:replace="fragments/layout.html :: html_head" />
+<body>
+	<div th:replace="fragments/layout.html :: menu" />
+	<div class="container mt-4" id="movieDetails">
+		<div class="row">
+			<div class="col-sm-3 col-md-3 col-lg-3">
+				<div class="row">
+					<div class="moviedetail"><img th:src="@{'/images/'+${movie.moviePoster}}"></div>
+				</div>
+				<div class="row">
+					<label>**Rate the movie**</label>
+				</div>
+				<div class="row">
+					<input id="inputReview" name="input-name" type="number" class="rating" value="0" min=0.5 max=5
+						data-size="sm" data-rtl="false">
+				</div>
+			</div>
+			<div class="col-sm-8 col-md-8 col-lg-8">
+				<h2 th:text="${movie.movieTitle}"></h2>
+				<input id="movieReview" name="input-name" type="number" class="rating ra" th:value="${movieRating}"
+					min=0.5 max=5 data-size="xs" data-rtl="false">
+				<p th:text="${movie.movieDescription}"></p>
+				<div class="row">
+					<h7 th:text="'Director : '+${movie.director}"></h7>
+				</div>
+				<div class="row">
+					<h7 th:text="'Actor1    :	'+${movie.actor1_name}"></h7>
+				</div>
+				<div class="row">
+					<h7 th:text="'Actor2    :	'+${movie.actor2_name}"></h7>
+				</div>
+			</div>
+		</div>
+
+
+		<hr>
+		<form action="#" th:action="@{/review}" th:object="${formReview}" method="post">
+
+			<div id="reviewList" class="scroll">
+
+				<div class="row mar" th:each="review : ${movie.reviews}">
+					<div class="col-sm-2 col-md-2 col-lg-2"></div>
+					<div class="col-sm-10 col-md-10 col-lg-10">
+						<div class="row">
+							<h7 th:text="'*Review by '+${review.user.userName}"></h7>
+						</div>
+						<div class="row">
+							<input th:if="${loginUserId} == ${review.user.userId}" th:id="${review.reviewId}+'input'"
+								type="text" id="userReivew" class="col-sm-8" th:field="*{editComment}"
+								style="display: none;" />
+							<p th:id="${review.reviewId}" class="col-sm-8" th:text="${review.comment}"></p>
+							&nbsp;&nbsp;&nbsp;
+							<a id="edit" th:if="${loginUserId} == ${review.user.userId}"
+								th:data-reviewId="${review.reviewId}" th:data-comment="${review.comment}"
+								class="btn btn-secondary col-sm-1 btn-edit"><span th:text="Edit"></span></a>
+
+							<button th:id="${review.reviewId}+'save'" type="submit" class="col-sm-1 btn btn-success"
+								style="display: none;">Save</button>
+							<a th:if="${isAdmin}" th:href="@{/review/delete/}+${review.reviewId}"
+								class="btn btn-danger col-sm-1"><span th:text="Delete"></span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-sm-2 col-md-2 col-lg-2"></div>
+				<div class="col-sm-10 col-md-10 col-lg-10">
+					<div class="row">
+						<input type="text" id="review" class="col-sm-8" placeholder="Write your review here......"
+						th:field="*{comment}" th:value="${formReview.comment}" />
+					&nbsp;&nbsp;
+
+					<button id="postBtn" type="submit" class="col-sm-1 btn btn-success">Post</button>
+
+					</div>
+
+				</div>
+			</div>
+			<input type="text" id="movieId" th:value="${formReview.movieId}" th:field="*{movieId}" hidden />
+		</form>
+	</div>
+	
+	<script type="text/javascript" src="js/movie_details.js"></script>
+	<script src="/assets/star-rating.min.js"></script>
+
+	<div th:replace="fragments/layout.html :: footer" />
+
+</body>
+
+</html>
