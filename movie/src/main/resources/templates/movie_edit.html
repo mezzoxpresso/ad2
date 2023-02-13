@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link th:href="@{/css/responsive.css}" rel ="stylesheet" href="responsive.css">
 <link rel="stylesheet" media="all" th:href="@{/bootstrap/css/bootstrap.min.css}" href="/bootstrap/css/bootstrap.min.css"
 	type="text/css" />
 <link rel="stylesheet" media="all" th:href="@{/css/site.css}" href="/bootstrap/css/bootstrap.min.css" type="text/css" />
@@ -10,20 +11,19 @@
 
 <body>
 	<div th:replace="fragments/layout.html :: menu" />
+		<div class="header ">
+			<h2>Edit Movie</h2>
+		</div>
+		<div class="box">
 	<form action="#" th:action="@{/admin/movie/edit}" method="post" enctype="multipart/form-data" th:object="${movie}">
 		<input type="text" th:field="*{movieId}" th:value="${movie.movieId}" hidden />
 		<div class="container mt-4  form-control">
-			<div class="form-group row">
-				<div class="col-sm-2"></div>
-				<h3 class="col-sm-4">Edit Movie</h3>
-			</div>
+
 			<hr>
 
 
 			<div class="form-group row">
-				<div class="col-sm-2"></div>
-				<label for="inputPassword" class="col-sm-2 col-form-label">Movie Poster:</label>
-				<div class="col-sm-2">
+				<label for="inputPassword" >Movie Poster:</label>
 					<div class="mb-4 d-flex justify-content-center">
 						<img th:src="@{'/images/'+${movie.moviePoster}}" id="output" alt="example placeholder"
 							style="width: 300px;" />
@@ -137,6 +137,7 @@
 
 		</div>
 	</form>
+	</div>
 
 	<script>
 		var loadFile = function (event) {

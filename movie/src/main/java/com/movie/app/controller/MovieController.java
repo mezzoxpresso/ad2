@@ -139,7 +139,7 @@ public class MovieController {
 	public String movieDetails(Model model, HttpSession session) {
 
 		// get movie by id//will get from main page
-		int mid = 9;
+		int mid = 2;
 
 		// Get Movie Data
 		Movie m = movieService.findMovie(mid);

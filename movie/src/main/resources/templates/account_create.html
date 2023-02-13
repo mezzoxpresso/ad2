@@ -7,11 +7,11 @@
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
 <link th:href="@{/css/responsive.css}" rel ="stylesheet" href="responsive.css">
 <head th:replace="fragments/layout.html :: html_head" />
-<body>
+<body style="background-color:#212529; color: #FFFFFF">
 	<div th:replace="fragments/layout.html :: menu" />
 	<div class="box">
 	 <form action="#" th:action="@{'/createAccount'}" th:object="${user}" method="post" enctype="multipart/form-data">
-		<div class="container mt-4  form-control">
+		<div style="background-color:#212529; color: #FFFFFF" class="container mt-4  form-control">
 			<div class="form-group row">
 				<div class="col-sm-2"></div>
 				<h3 class="col-sm-4">Create an new account</h3>
@@ -61,7 +61,7 @@
 			<div class="form-group row">
 				<div class="col-sm-2"></div>
 				<label for="password" class="col-sm-2 col-form-label">Password:</label>
-				<div class="col-sm-8">
+				<div class="col-sm-4">
 					<input type="password" name="password" id="password" th:field="*{password}" />
 					<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" 
 					class="text-danger"></span>

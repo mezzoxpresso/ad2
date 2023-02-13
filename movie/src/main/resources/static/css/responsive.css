@@ -214,6 +214,7 @@
 .wrapper-2-box{
 	flex: 2;
 	padding:5px;
+	word-break: break-word;
 }
 
 .wrapper-2-id{
@@ -228,6 +229,7 @@
 .wrapper-2-description{
 	flex: 4;
 	padding:5px;
+	
 }
 
 /*edit movie*/
@@ -352,9 +354,9 @@
 	.container{
 		border: 2px solid #3f5246;	
 		border-radius: 12px;
-		margin-left: 20px;
-		margin-right:20px;
-		padding: 10px;
+		margin-left: 5px;
+		margin-right:5px;
+		padding: 5px;
 	}
 	
 	.center {
